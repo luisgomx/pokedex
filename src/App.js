@@ -64,6 +64,8 @@ function App() {
             <PokemonCard
               name={pokemon.name}
               img={pokemon.sprites.other.dream_world.front_default}
+              type={pokemon.types[0].type.name}
+              general={pokemon}
             />
           ))}
       </div>
