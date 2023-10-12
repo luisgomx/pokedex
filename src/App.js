@@ -7,7 +7,6 @@ import PokemonCard from "./components/PokemonCard";
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonFilteredList, setPokemonFilteredList] = useState([]);
-  const [receivedResponsesCount, setReceivedResponsesCount] = useState(0);
   const [isFiltering, setIsFiltering] = useState(false);
   const [pokemonName, setPokemonName] = useState("");
 
