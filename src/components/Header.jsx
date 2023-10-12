@@ -1,17 +1,6 @@
-function Header({
-  pokemonName,
-  setPokemonName,
-  pokemonList,
-  setPokemonFilteredList,
-}) {
+function Header({ pokemonName, setPokemonName }) {
   const handleChange = (e) => {
     setPokemonName(e.target.value);
-
-    if (pokemonName.length === 0) {
-      setPokemonFilteredList(pokemonList);
-    }
-
-    console.log(pokemonName.length);
   };
 
   return (
