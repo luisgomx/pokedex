@@ -26,13 +26,34 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-      .then((response) => response.json())
-      .then((data) => {
-        data.results.forEach((element) => {
-          fetchData(element.url);
-        });
-      });
+    const fetchPokemonData = async () => {
+      try {
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/pokemon?limit=151"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        const pokemons = data.results;
+
+        const pokemonDetails = await Promise.all(
+          pokemons.map(async (pokemon) => {
+            const detailResponse = await fetch(pokemon.url);
+            if (!detailResponse.ok) {
+              throw new Error("Network response was not ok");
+            }
+            const detailData = await detailResponse.json();
+            return detailData;
+          })
+        );
+        setPokemonList(pokemonDetails);
+      } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+      }
+    };
+
+    fetchPokemonData();
 
     setIsFiltering(false);
   }, []);
@@ -75,7 +96,6 @@ function App() {
             />
           ))}
       </div>
-      {console.log(pokemonList && !isFiltering)}
     </Container>
   );
 }
