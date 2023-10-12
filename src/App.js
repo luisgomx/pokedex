@@ -11,20 +11,6 @@ function App() {
   const [isFiltering, setIsFiltering] = useState(false);
   const [pokemonName, setPokemonName] = useState("");
 
-  const fetchData = async (url) => {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      setPokemonList((prevResponses) => [...prevResponses, data]);
-      setReceivedResponsesCount((prevCount) => prevCount + 1);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
     const fetchPokemonData = async () => {
       try {
