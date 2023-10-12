@@ -4,7 +4,7 @@ function Header({ pokemonName, setPokemonName }) {
   };
 
   return (
-    <div className="bg-red-400 w-screen rounded-br-xl rounded-bl-xl h-40 p-12 flex-col text-center">
+    <div className="bg-red-400 w-screen rounded-br-xl rounded-bl-xl p-5 flex-col text-center ">
       <div className="font-press text-white tracking-widest">
         Which Pókemon are you looking for? :)
       </div>

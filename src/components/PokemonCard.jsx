@@ -43,7 +43,7 @@ function PokemonCard(props) {
   return (
     <div
       onClick={() => handleClick()}
-      className="bg-white h-80 w-60 m-5 rounded-xl p-5 font-press"
+      className="bg-white h-80 w-60 m-10 rounded-xl pt-5 font-press"
     >
       <div className="text-center flex flex-wrap justify-center">
         <p className="w-screen">{capitalizeFirstLetter(props.name)}</p>
@@ -55,6 +55,29 @@ function PokemonCard(props) {
       </div>
       <div className="flex justify-center mt-3">
         <img className="h-36" src={props.img} alt={props.name} />
+      </div>
+      <div
+        className=" mt-2 bg-emerald-100 p-5 rounded-bl-xl rounded-br-xl h-auto"
+        style={{ fontSize: "0.50rem" }}
+      >
+        <div className="flex justify-center">
+          <p>
+            Weight:
+            <span className="">{props.general.weight}lb</span>
+          </p>
+          <div className="m-1"></div>
+          <p>
+            Height:<span className="">{props.general.height}"</span>
+          </p>
+        </div>
+        <div className="mt-5">
+          <p>Abilities:</p>
+          <ul className="list-disc text-center">
+            {props.general.abilities.map((ability) => (
+              <li>{ability.ability.name}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
