@@ -7,8 +7,8 @@ function Header({
   const handleChange = (e) => {
     setPokemonName(e.target.value);
 
-    if (pokemonName.length === 1) {
-      setPokemonFilteredList([]);
+    if (pokemonName.length === 0) {
+      setPokemonFilteredList(pokemonList);
     }
 
     console.log(pokemonName.length);

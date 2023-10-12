@@ -14,10 +14,8 @@ function PokemonCard(props) {
     switch (type) {
       case "fire":
         return types.fire;
-        break;
       case "grass":
         return types.grass;
-        break;
       case "water":
         return types.water;
       default:
