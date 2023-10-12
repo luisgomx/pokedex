@@ -80,6 +80,9 @@ function App() {
               general={pokemon}
             />
           ))}
+        {pokemonFilteredList.length === 0 && (
+          <p className="font-press text-xl">No Pókemons found :(</p>
+        )}
       </div>
     </Container>
   );

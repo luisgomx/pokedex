@@ -36,7 +36,6 @@ function PokemonCard(props) {
         return types.electric;
       default:
         return types.bug;
-        break;
     }
   };
 
