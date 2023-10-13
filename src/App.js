@@ -3,14 +3,17 @@ import "./App.css";
 import Container from "./components/Container";
 import Header from "./components/Header";
 import PokemonCard from "./components/PokemonCard";
+import { Audio, Circles, Rings, ProgressBar, Dna } from "react-loader-spinner";
 
 function App() {
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonFilteredList, setPokemonFilteredList] = useState([]);
   const [isFiltering, setIsFiltering] = useState(false);
   const [pokemonName, setPokemonName] = useState("");
+  const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchPokemonData = async () => {
       try {
         const response = await fetch(
@@ -30,7 +33,8 @@ function App() {
             }
             const detailData = await detailResponse.json();
             return detailData;
-          })
+          }),
+          setIsLoading(false)
         );
         setPokemonList(pokemonDetails);
       } catch (error) {
@@ -38,7 +42,9 @@ function App() {
       }
     };
 
-    fetchPokemonData();
+    setTimeout(() => {
+      fetchPokemonData();
+    }, 2000);
 
     setIsFiltering(false);
   }, []);
@@ -59,6 +65,19 @@ function App() {
   return (
     <Container>
       <Header pokemonName={pokemonName} setPokemonName={setPokemonName} />
+      {loading && (
+        <div className="flex justify-center w-screen">
+          <Dna
+            visible={true}
+            height="150"
+            width="150"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        </div>
+      )}
+
       <div className="p-10 flex flex-wrap justify-center w-screen">
         {pokemonFilteredList &&
           isFiltering &&
@@ -80,7 +99,7 @@ function App() {
               general={pokemon}
             />
           ))}
-        {pokemonFilteredList.length === 0 && (
+        {pokemonFilteredList.length === 0 && !!false && (
           <p className="font-press text-md text-center">No Pókemons found :(</p>
         )}
       </div>
