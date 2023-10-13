@@ -78,7 +78,7 @@ function App() {
         </div>
       )}
 
-      <div className="p-10 flex flex-wrap justify-center w-screen">
+      <div className="p-2 flex flex-wrap justify-center w-screen">
         {pokemonFilteredList &&
           isFiltering &&
           pokemonFilteredList.map((pokemon) => (

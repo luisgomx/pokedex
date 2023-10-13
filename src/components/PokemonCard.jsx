@@ -42,7 +42,7 @@ function PokemonCard(props) {
   return (
     <div
       onClick={() => handleClick()}
-      className="bg-white h-80 w-60 m-10 rounded-xl pt-5 font-press"
+      className="bg-white h-80 w-60 m-8 rounded-xl pt-5 font-press"
     >
       <div className="text-center flex flex-wrap justify-center">
         <p className="w-screen">{capitalizeFirstLetter(props.name)}</p>
