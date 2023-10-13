@@ -100,7 +100,9 @@ function App() {
             />
           ))}
         {pokemonFilteredList.length === 0 && !loading && (
-          <p className="font-press text-md text-center">No Pókemons found :(</p>
+          <p className="font-press text-md text-center mt-10">
+            No Pókemons found :(
+          </p>
         )}
       </div>
     </Container>
