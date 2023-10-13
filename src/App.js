@@ -33,9 +33,9 @@ function App() {
             }
             const detailData = await detailResponse.json();
             return detailData;
-          }),
-          setIsLoading(false)
+          })
         );
+        setIsLoading(false);
         setPokemonList(pokemonDetails);
       } catch (error) {
         console.error("Error fetching Pokémon data:", error);
