@@ -52,7 +52,10 @@ function App() {
   useEffect(() => {
     setPokemonFilteredList(
       pokemonList.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(pokemonName.toLowerCase())
+        pokemon.name
+          .toLowerCase()
+          .trim()
+          .includes(pokemonName.toLowerCase().trim())
       )
     );
     pokemonName.length <= 0 ? setIsFiltering(false) : setIsFiltering(true);
