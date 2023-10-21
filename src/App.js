@@ -44,7 +44,7 @@ function App() {
 
     setTimeout(() => {
       fetchPokemonData();
-    }, 2000);
+    }, 1000);
 
     setIsFiltering(false);
   }, []);
